@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="gu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maths & Reasoning Exam</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Start Screen -->
+    <div id="start-screen" class="screen active">
+        <h1>ગણિત અને રિઝનિંગ પરીક્ષા (Maths & Reasoning)</h1>
+        <div class="info-box">
+            <p><strong>કુલ પ્રશ્નો:</strong> <span id="total-q-start"></span></p>
+            <p><strong>સમય:</strong> 1 કલાક 45 મિનિટ (105 મિનિટ)</p>
+            <div class="rules">
+                <h3>નિયમો (Marking Scheme):</h3>
+                <ul>
+                    <li>સાચો જવાબ (Correct): <strong>+1 માર્ક</strong></li>
+                    <li>ખોટો જવાબ (Wrong): <strong class="red">-1.33 માર્ક</strong></li>
+                    <li>પ્રશ્ન છોડી દેવા પર (Unattempted): <strong class="red">-1 માર્ક</strong></li>
+                </ul>
+            </div>
+            <p class="note">નોંધ: પ્રશ્નો દર વખતે આડાઅવળા (Random) આવશે.</p>
+        </div>
+        <button onclick="startExam()" class="btn-primary">પરીક્ષા શરૂ કરો</button>
+    </div>
+
+    <!-- Exam Screen -->
+    <div id="exam-screen" class="screen">
+        <div class="header">
+            <div class="timer-box">સમય બાકી: <span id="timer">105:00</span></div>
+            <button onclick="confirmSubmit()" class="btn-danger">Submit Exam (પરીક્ષા પૂરી કરો)</button>
+        </div>
+        <div class="main-content">
+            <div class="question-section">
+                <div class="q-header">
+                    <h3>પ્રશ્ન: <span id="current-q-num">1</span> / <span id="total-q-exam"></span></h3>
+                </div>
+                <h2 id="question-text">અહીં પ્રશ્ન આવશે...</h2>
+                <div id="options-container" class="options-list">
+                    <!-- Options will be injected here -->
+                </div>
+                <div class="navigation">
+                    <button onclick="prevQuestion()" id="prev-btn" class="btn-secondary">પાછળ (Previous)</button>
+                    <button onclick="clearAnswer()" class="btn-secondary">જવાબ કાઢો (Clear)</button>
+                    <button onclick="nextQuestion()" id="next-btn" class="btn-primary">આગળ (Next)</button>
+                </div>
+            </div>
+            <div class="palette-section">
+                <h3>પ્રશ્ન પેલેટ</h3>
+                <div id="question-palette" class="palette-grid">
+                    <!-- Question numbers -->
+                </div>
+                <div class="palette-legend">
+                    <div><span class="box attempted"></span> જવાબ આપેલ</div>
+                    <div><span class="box not-attempted"></span> બાકી છે</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Result Screen -->
+    <div id="result-screen" class="screen">
+        <h1>પરીક્ષા પરિણામ (Result)</h1>
+        <div class="result-box">
+            <h2>તમારો સ્કોર: <span id="final-score"></span> / <span id="total-score-max"></span></h2>
+            <div id="score-details" class="details-grid">
+                <!-- Details injected here -->
+            </div>
+        </div>
+        <button onclick="showSolutions()" class="btn-primary mt-20">સોલ્યુશન જુઓ (View Solutions)</button>
+    </div>
+
+    <!-- Solutions Screen -->
+    <div id="solution-screen" class="screen">
+        <div class="header">
+            <h2>સોલ્યુશન (Answers & Explanations)</h2>
+            <button onclick="window.location.reload()" class="btn-primary">ફરીથી પરીક્ષા આપો (Restart)</button>
+        </div>
+        <div id="solutions-container" class="solutions-list">
+            <!-- Solutions injected here -->
+        </div>
+    </div>
+
+    <script src="questions.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
